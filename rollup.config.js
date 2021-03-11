@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import ttypescript from 'ttypescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -29,8 +29,7 @@ export default {
       preferBuiltins: true
     }),
     typescript({
-      clean: true,
-      tsconfig: 'tsconfig.rollup.json',
+      tsconfig: './tsconfig.rollup.json',
       typescript: ttypescript
     })
   ]
