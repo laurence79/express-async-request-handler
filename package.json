@@ -16,7 +16,9 @@
   "main": "./lib/index.js",
   "module": "./lib/index.es.js",
   "types": "./lib/index.d.ts",
-  "files": ["lib/"],
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "boiler-update": "./node_modules/.bin/boiler-sync update",
     "lint": "./node_modules/.bin/eslint --cache 'src/**/*.ts' --quiet",
