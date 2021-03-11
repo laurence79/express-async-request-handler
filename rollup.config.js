@@ -1,13 +1,16 @@
 import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import external from 'rollup-plugin-peer-deps-external';
-import resolve from 'rollup-plugin-node-resolve';
+import json from '@rollup/plugin-json';
 import ttypescript from 'ttypescript';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import pkg from './package.json';
 
 export default {
   input: 'src/index.ts',
+  external: [
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.peerDependencies ?? {})
+  ],
   output: [
     {
       file: pkg.main,
@@ -21,16 +24,14 @@ export default {
     }
   ],
   plugins: [
-    external(),
-    resolve(),
+    json(),
+    nodeResolve({
+      preferBuiltins: true
+    }),
     typescript({
-      rollupCommonJSResolveHack: true,
       clean: true,
       tsconfig: 'tsconfig.rollup.json',
       typescript: ttypescript
-    }),
-    commonjs({
-      include: ['node_modules/**']
     })
   ]
 };
