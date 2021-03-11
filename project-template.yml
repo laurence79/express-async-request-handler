@@ -1,0 +1,9 @@
+uses:
+  repo: git@github.com:rivr-systems/oap-repo-templates.git
+  path: public-code-library
+
+parameters:
+  projectName: "@laurence79/express-async-request-handler"
+  projectTitle: "Express Async Request Handler"
+  projectDescription: "Yet another express async handler. Includes typed StatusCode for responses"
+  repoName: "express-async-request-handler"
