@@ -4,13 +4,13 @@ export type AsyncRequestHandler<Request, Response> = (
   req: Request,
   res: Response,
   next: NextFunction
-) => Promise<void>;
+) => Promise<unknown | void>;
 
 export type SyncRequestHandler<Request, Response> = (
   req: Request,
   res: Response,
   next: NextFunction
-) => void;
+) => unknown | void;
 
 export function asyncRequestHandler<Request, Response>(
   handler: AsyncRequestHandler<Request, Response>

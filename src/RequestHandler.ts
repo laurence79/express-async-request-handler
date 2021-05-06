@@ -18,5 +18,5 @@ export interface RequestHandler<
     req: Request<P, ResBody, ReqBody, ReqQuery, Locals>,
     res: Response<ResBody, Locals, StatusCode>,
     next: NextFunction
-  ): void;
+  ): unknown | void;
 }
